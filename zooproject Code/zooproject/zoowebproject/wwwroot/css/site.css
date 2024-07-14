@@ -1,0 +1,280 @@
+/*@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root {
+    --green-yellow: #d5ff80;
+    --green: #00b33c;
+    --blue-green: #9FFCDF;
+}   
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--green-yellow);
+}
+.container{
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav, footer {
+    background-color: var(--green);
+    flex: 0 1 auto;
+}
+
+button{
+    border-radius: 2rem;
+    border: none;
+    background-color: var(--blue-green);
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--green);
+    color: white;
+}
+
+    /*NavBar*/
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.nav-links a{
+    color: black;
+    text-decoration: none;
+/*    padding: 5%;*/
+    color: white;
+    font-size: 20px;
+}
+.nav-logo{
+    width: 50%;
+}
+.nav-logo a img{
+    width: 10%;
+}
+.nav-links a:hover {
+    color: var(--blue-green);
+    /*background-color: var(--green-yellow);*/
+}
+.nav-links{
+    display: flex;
+    width: 20%;
+    justify-content: space-evenly;
+}
+/*.nav-logo{
+    padding: 1%;
+}*/
+
+/*Footer*/
+footer {
+    text-align: center;
+    padding: 1%;
+}
+
+    /*LoginPage*/
+.login-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.login-box{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 2%;
+    font-size: 20px;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 2%;
+}
+.login-form input, .register-form input{
+    padding: 5%;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+}
+.login-form label, .register-form label{
+    margin: 3%;
+    align-self: flex-start;
+}
+.login-button{
+    margin-top: 10%;
+    font-size: 16px;
+    margin-bottom: 5%;
+}
+.login-button:hover{
+    cursor: pointer;
+    background-color: var(--green);
+}
+
+    /*Register page*/
+.register-form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 2%;
+}
+
+
+
+    /*Home page*/
+.home-con{
+    flex-grow: 1;
+/*    display: flex;
+    flex-direction: column;*/
+    width: 100%;
+}
+.image-gif-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+/*    background-color: var(--green);*/
+/*    padding: 10%;*/
+/*    margin-bottom: 100px;*/
+}
+.image-gif-con h1{
+    font-size: 150px;
+}
+.image-gif-con .video-bg{
+/*    position: absolute;*/
+    top: 0;
+    left: 0;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: .7;
+    overflow: hidden;
+/*    height: 50vh;*/
+}
+.something{
+    background-color: var(--green);
+    height: 20vh;
+}
+.animals-con{
+    text-align: center;
+    padding: 2%;
+}
+.animals-con h1{
+    margin: 3%;
+}
+.animals-grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    justify-items: center;
+    padding: 1%;
+}
+.animals{
+    width: 50%;
+}
+.animals img, .tickets-con img{
+    width: 100%;
+}
+.home-ticket-con {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1%;
+    background: linear-gradient(155deg, rgba(0,179,60,1) 30%, rgba(213,255,128,1) 30%);
+}
+.home-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-ticket img{
+    width: 30%;
+}
+.to-tickets a {
+    background-color: var(--blue-green);
+    padding: 1%;
+    margin-top: 200px;
+}
+.ticket-info h2{
+    margin-bottom: 30%;
+}
+.ticket-info button{
+    padding: 5%;
+    width: 100%;
+/*    display: none;*/
+}
+.ready-explore-con{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5%;
+}
+
+.to-gallery, .to-tickets{
+    text-align: center;
+}
+.ready-explore-con button{
+    margin-top: 5%;
+    margin-top: 5%;
+    width: 50%;
+    padding: 5%;
+}
+.to-tickets{
+    position: absolute;
+}
+.to-tickets button{
+    width: 10%;
+    padding: 1%;
+    margin-top: 2%;
+}
+
+    /*Tickets page*/
+.tickets-con {
+/*    display: grid;
+    grid-template-columns: auto;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    justify-items: center;*/
+    padding: 1%;
+}
+.tickets form{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;  
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 2%;
+}
+.tickets button{
+    text-align: center;
+    width: 10%;
+    padding: 1%;
+}
+.tickets form img{
+    width: 10%;
+}

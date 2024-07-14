@@ -1,0 +1,43 @@
+﻿@page
+@model zoowebproject.Pages.RegisterModel
+@{
+	ViewData["Title"] = "Register";
+}
+<div class="login-box">
+	<h1>Register</h1>
+	<h4>@Model.Message</h4>
+	<form class="register-form" method="post">
+		<label asp-for="newUser.FirstName">First Name</label>
+		<span asp-validation-for="newUser.FirstName"></span>
+		<input asp-for="newUser.FirstName" type="text">
+
+		<label asp-for="newUser.LastName">Last Name</label>
+		<span asp-validation-for="newUser.LastName"></span>
+		<input asp-for="newUser.LastName" type="text">
+
+		<label asp-for="newUser.Email">E-mail</label>
+		<span asp-validation-for="newUser.Email"></span>
+		<input asp-for="newUser.Email" type="email">
+
+		<label asp-for="newUser.Username">Username</label>
+		<span asp-validation-for="newUser.Username"></span>
+		<input asp-for="newUser.Username" type="text">
+
+		<label asp-for="newUser.Password">Password</label>
+		<span asp-validation-for="newUser.Password"></span>
+		<input asp-for="newUser.Password" type="password">
+
+		<label asp-for="newUser.Adress">Adress</label>
+		<span asp-validation-for="newUser.Adress"></span>
+		<input asp-for="newUser.Adress" type="text">
+
+		<label asp-for="newUser.Country">Country</label>
+		<span asp-validation-for="newUser.Country"></span>
+		<select asp-for="newUser.Country" asp-items="@Model.GetCountrySelectList()">
+			<option value="">Select a country</option>
+		</select>
+
+		<input class="login-button" type="submit" value="Submit">
+		<span>Already have an account? <a asp-page="/Login">Login here</a></span>
+	</form>
+</div>

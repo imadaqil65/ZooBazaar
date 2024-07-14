@@ -1,0 +1,111 @@
+﻿@page
+@using Microsoft.AspNetCore.Http;
+@model zoowebproject.Pages.TicketsModel
+@{
+	ViewData["Title"] = "Tickets";
+}
+
+<div class="tickets-con">
+    <div class="tickets-forms">
+            <div class="tickets">
+                <form method="post" id="ticketForm">
+                    <table style="width:100%">
+                        <tr>
+                        <th style="width:30%"></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                    @foreach (var ticket in Model.TicketList)
+                    {
+                        <tr>
+                            <td style="text-align:center"><img src="@ticket.image" /></td>
+                            <td><h2>@ticket.name</h2></td>
+                            <td><h2>€: @ticket.price</h2></td>
+                            <td><p>@ticket.description</p></td>
+                            <td>
+                                <button type="button" id="decreaseBtn">-</button>
+                                <input id="amount" type="number" value="0" name="Amount" maxlength="1" min="0" step="1">
+                                <button type="button" id="increaseBtn">+</button>
+                            </td>
+                        </tr>
+                        <input type="hidden" name="Id" value="@ticket.id" />
+                    }
+                    </table>
+                    <button id="buyButton" type="submit" name="action" value="addtocart">Add to cart</button>
+                </form>
+            </div>
+    </div>
+        <div class="ticket-cart">
+            <h1>Cart</h1>
+        <form method="post" id="CartForm">
+                    <div class="cart-product">
+                        <h4>@Model.Msg</h4>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Amount</th>
+                            </tr>
+                    @foreach (var tickets in Model.CartTicketList)
+                    {
+                        <tr>
+                            <td>
+                                <button type="submit" id="removeTicket" name="removeTicket" value="@tickets.Ticket.id">X</button>
+                            </td>
+                            <td>@tickets.Ticket.name</td>
+                            <td>€: @tickets.Ticket.price</td>
+                            <td>@tickets.Amount</td>
+                            <td>
+                                <button type="submit" id="decreaseSelected" name="decreaseSelected" value="@tickets.Ticket.id">-</button>
+                            </td>
+                        </tr>
+                    }
+                        </table>
+                    </div>
+            </form>
+
+        <h1>Total price: $@Model.TotalPrice</h1>
+               @if (!User.Identity.IsAuthenticated)
+            {
+            <div class="cart-buttons">
+                <div class="cart-inputs">
+                    <label for="email">Email</label>
+                    <input type="email" form="CartForm" name="email" id="Cart-Email" />
+                    <label for="country">Country</label>
+                    <select asp-items="@Model.GetCountrySelectList()" name="country" form="CartForm">
+                        <option value="">Select a country</option>
+                    </select>
+                    <label for="adress">Adress</label>
+                    <input type="text" form="CartForm" name="adress" id="Cart-Email" />
+                </div>
+
+                <button type="submit" form="CartForm" name="checkout" id="CheckOut" onclick="showConfirmation()">Check Out</button>
+                <button type="submit" form="CartForm" value="Reset" name="reset" id="resetButton">Cancel</button>
+            </div>
+        }
+        else
+        {
+            <div class="cart-buttons">
+                <button type="submit" form="CartForm" name="checkout" id="CheckOut" onclick="showConfirmation()">Check Out</button>
+                <button type="submit" form="CartForm" value="Reset" name="reset" id="resetButton">Cancel</button>
+            </div>
+        }
+        </div>
+
+    <script>
+        function showConfirmation() {
+            var confirmation = confirm("Are you sure you want to buy these tickets?");
+            if (confirmation) {
+                document.getElementById("CheckOut").value = "Checkout";
+                document.getElementById("CheckOut").removeAttribute("onclick");
+                document.getElementById("CheckOut").click();
+            }else{
+                document.getElementById("CheckOut").value = "Refresh";
+                location.reload();
+            }
+        }
+    </script>
+</div>

@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="home-con">
+
+    <div class="image-gif-con">
+        <div class="to-tickets">
+            <h1>Welcome to Zoo Bazaar</h1>
+            <h2>Click here to check out our tickets</h2>
+            <button id="TicketBtn">Buy Tickets</button>
+        </div>
+        <video autoplay loop muted plays-inline class="video-bg">
+            <source src="Images/zoo.mp4" type="video/mp4"/>
+        </video>
+    </div>
+
+    @*<div class="animals-con">
+        <h1>Our animals</h1>
+
+        <div class="animals-grid">
+            <div class="animals">
+                <img src="Images/Zoo Bazaar Transparent.png" />
+            </div>
+            <div class="animals">
+                <img src="Images/Zoo Bazaar Transparent.png" />
+            </div>
+            <div class="animals">
+                <img src="Images/Zoo Bazaar Transparent.png" />
+            </div>
+            <div class="animals">
+                <img src="Images/Zoo Bazaar Transparent.png" />
+            </div>
+        </div>
+
+    </div>*@
+
+@*    <div class="something">
+
+    </div>*@
+
+@*    <div class="home-ticket-con">
+        <h1>Ticket of the day</h1>
+        <form method="post">
+            <div class="home-ticket">
+			    <img src="image" />
+                <div class="ticket-info">
+                    <h2>name</h2>
+                    <button type="submit">Buy</button>
+                </div>
+            </div>
+        </form>
+    </div>*@
+
+    <div class="ready-explore-con">
+        <div class="to-gallery">
+            <h2>Click here to check out our animals</h2>
+            <button>Explore</button>
+        </div>
+@*        <div class="to-tickets">
+            <h2>Click here to check out our tickets</h2>
+            <button>Buy</button>
+        </div>*@
+    </div>
+    
+</div>
+
+<script>
+    document.getElementById('TicketBtn').addEventListener('click', function () {
+        window.location.href = 'Tickets';
+    });
+</script>

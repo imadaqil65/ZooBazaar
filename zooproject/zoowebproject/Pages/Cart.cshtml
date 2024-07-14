@@ -1,0 +1,38 @@
+﻿@page
+@model zoowebproject.Pages.CartModel
+@{
+	ViewData["Title"] = "Cart";
+}
+
+<div class="cart-con">
+
+	<form method="post" id="myForm">
+		@foreach(var tickets in Model.CartTicketList)
+		{
+			<div class="cart-product">
+				<img src="@tickets.Ticket.image" />
+				<h1>@tickets.Ticket.name</h1>
+				<h2>$: @tickets.Ticket.price</h2>
+				<p>Amount: @tickets.Amount</p>
+
+			</div>
+		}
+		<div class="cart-buttons">
+			<button type="submit" value="submit">Check Out</button>
+			<button type="submit" value="Reset" name="reset" id="resetButton">Cancel</button>
+		</div>
+		
+	</form>
+
+@*	@section Scripts {
+		<script>
+			document.getElementById('resetButton').addEventListener('click', function (event) {
+				event.preventDefault();
+				document.getElementById('myForm').action = '@Url.Page("./Cart", "OnPostReset")';
+				document.getElementById('myForm').submit();
+			});
+		</script>
+	}*@
+
+
+</div>

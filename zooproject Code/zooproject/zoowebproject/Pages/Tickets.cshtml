@@ -1,0 +1,26 @@
+﻿@page
+@model zoowebproject.Pages.TicketsModel
+@{
+	ViewData["Title"] = "Tickets";
+}
+
+<div class="tickets-con">
+        @foreach(var ticket in Model.TicketList)
+        {
+            <div class="tickets">
+                <form method="post" id="ticketForm">
+                    <img src="@ticket.image" />
+                    <h1>@ticket.name</h1>
+                    <h2>$: @ticket.price</h2>
+                    <p>@ticket.description</p>
+@*                    <label>Quantity</label>
+                    <input type="number">*@
+                    <input type="hidden" name="Id" value="@ticket.id" />
+                    <button id="buyButton" type="submit" value="submit">Buy</button>
+                    @*<a asp-page="Product_details"><img src="@clothes.Image" /></a>*@
+                </form>
+            </div>
+        }
+
+
+</div>

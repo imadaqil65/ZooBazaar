@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - zoowebproject</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a class="navbar-brand" asp-page="/Index"><img src="Images/Zoo Bazaar Transparent.png" /></a>
+            </div>
+
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="nav-links">
+                    <a class="nav-link" asp-page="Index">Home</a>
+                    <a class="nav-link" asp-page="Tickets">Tickets</a>
+                    @*<a class="nav-link" asp-area="" asp-page="/Gallery">Gallery</a>*@
+                    <a class="nav-link" asp-page="Login">Login</a>
+                </div>
+            }
+            else
+            {
+                <div class="nav-links">
+                    <a class="nav-link" asp-page="Index">Home</a>
+                    <a class="nav-link" asp-page="Tickets">Tickets</a>
+                    @*<a class="nav-link" asp-area="" asp-page="/Gallery">Gallery</a>*@
+                    <a class="nav-link" asp-page="Profile">Profile</a>
+                    <a class="nav-link" asp-page="Logout">Logout</a>
+                </div>
+            }
+
+        </nav>
+    </header>
+    <div class="container">
+            @RenderBody()
+    </div>
+
+    <footer>
+            &copy; 2023 - zoowebproject - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </footer>
+
+@*    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿@page
+@using Microsoft.AspNetCore.Http;
+@model zoowebproject.Pages.LoginModel
+@{
+	ViewData["Title"] = "Login";
+}
+<div class="login-container">
+    <div class="login-box">
+        <h1>@Model.PageTitle</h1>
+        <h4>@Model.Msg</h4>
+        <form class="login-form" method="post">
+
+            <label asp-for="@Model.username">Username</label>
+            <input type="text" asp-for="@Model.username" />
+
+            <label asp-for="@Model.password">Password</label>
+            <input type="password" asp-for="@Model.password" />
+
+            <input class="login-button" type="submit" value="Login" />
+
+        </form>
+        <span>Don't have an account? <a asp-page="/Register">Register here</a></span>
+    </div>
+</div>

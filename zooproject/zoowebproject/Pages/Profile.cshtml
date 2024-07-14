@@ -1,0 +1,57 @@
+﻿@page
+@using Microsoft.AspNetCore.Http;
+@model zoowebproject.Pages.ProfileModel
+@{
+}
+
+<div class="profile-con">
+	<form method="post">
+
+		<h1>Your profile</h1>
+		<h3>@Model.Msg</h3>
+
+		<label for="firstName">FirstName</label>
+		<input type="text" id="FirstName" name="firstName" value="@Model.SelectedUser.FirstName" readonly />
+
+		<label for="lastName">LastName</label>
+		<input type="text" id="LastName" name="lastName" value="@Model.SelectedUser.LastName" readonly />
+
+		<label for="username">Username</label>
+		<input type="text" id="Username" name="username" value="@Model.SelectedUser.Username" readonly />
+
+		<label for="email">Email</label>
+		<input type="text" id="Email" name="email" value="@Model.SelectedUser.Email" readonly />
+
+
+		<label for="country">Country</label>
+		<select name="country" asp-for="@Model.SelectedUser.Country" asp-items="@Model.GetCountrySelectList()" ></select>
+
+
+
+		<label for="adress">Adress</label>
+		<input type="text" id="Adress" name="adress" value="@Model.SelectedUser.Adress" readonly />
+
+		<label style="display: none;" id="passL" for="password">Password</label>
+		<input style="display: none;" type="password" id="Password" name="password" />
+
+		<div class="profile-button-con">
+			<button type="button" id="Edit">Edit</button>
+			<button type="submit" name="save" id="Save" value="Save">Save</button>
+			<button type="button" id="NewPass">NewPass?</button>
+			<button type="submit" name="delete" id="Delete" onclick="showConfirmation()">Delete</button>
+		</div>
+	</form>
+
+
+	<script>
+		function showConfirmation() {
+			var confirmation = confirm("Are you sure you want to delete your account?");
+			if (confirmation) {
+				document.getElementById("Delete").value = "Delete";
+				document.getElementById("Delete").removeAttribute("onclick");
+				document.getElementById("Delete").click();
+			}
+		}
+	</script>
+
+</div>

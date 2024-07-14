@@ -1,0 +1,23 @@
+﻿@page
+@model zoowebproject.Pages.RegisterModel
+@{
+	ViewData["Title"] = "Register";
+}
+<div class="login-box">
+	<h1>Register</h1>
+	<form class="register-form">
+		<label asp-for="newUser.FirstName">First Name</label>
+		<input asp-for="newUser.FirstName" type="text">
+		<label asp-for="newUser.LastName">Last Name</label>
+		<input asp-for="newUser.LastName" type="text">
+		<label asp-for="newUser.Email">E-mail</label>
+		<input asp-for="newUser.Email" type="email">
+		<label asp-for="newUser.Username">Username</label>
+		<input asp-for="newUser.Username" type="text">
+		<label asp-for="newUser.Password">Password</label>
+		<input asp-for="newUser.Password" type="password">
+
+		<input class="login-button" type="submit" value="Submit">
+		<span>Already have an account? <a asp-page="/Login">Login here</a></span>
+	</form>
+</div>
